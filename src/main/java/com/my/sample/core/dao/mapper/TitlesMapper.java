@@ -1,6 +1,6 @@
 package com.my.sample.core.dao.mapper;
 
-import com.my.sample.core.entity.Titles;
+import com.my.sample.core.entity.po.Titles;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**

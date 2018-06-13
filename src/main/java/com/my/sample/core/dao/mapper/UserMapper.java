@@ -1,6 +1,6 @@
 package com.my.sample.core.dao.mapper;
 
-import com.my.sample.core.entity.po.Salaries;
+import com.my.sample.core.entity.po.User;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author shiyongbiao
- * @since 2018-06-13
+ * @since 2018-06-14
  */
-public interface SalariesMapper extends BaseMapper<Salaries> {
+public interface UserMapper extends BaseMapper<User> {
 
 }

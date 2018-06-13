@@ -1,9 +1,10 @@
-package com.my.sample.core.entity;
+package com.my.sample.core.entity.po;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
@@ -14,13 +15,15 @@ import java.io.Serializable;
  * @author shiyongbiao
  * @since 2018-06-13
  */
-public class Salaries extends Model<Salaries> {
+@TableName("dept_manager")
+public class DeptManager extends Model<DeptManager> {
 
     private static final long serialVersionUID = 1L;
 
     @TableId("emp_no")
     private Integer empNo;
-    private Integer salary;
+    @TableField("dept_no")
+    private String deptNo;
     @TableField("from_date")
     private Date fromDate;
     @TableField("to_date")
@@ -35,12 +38,12 @@ public class Salaries extends Model<Salaries> {
         this.empNo = empNo;
     }
 
-    public Integer getSalary() {
-        return salary;
+    public String getDeptNo() {
+        return deptNo;
     }
 
-    public void setSalary(Integer salary) {
-        this.salary = salary;
+    public void setDeptNo(String deptNo) {
+        this.deptNo = deptNo;
     }
 
     public Date getFromDate() {
@@ -66,9 +69,9 @@ public class Salaries extends Model<Salaries> {
 
     @Override
     public String toString() {
-        return "Salaries{" +
+        return "DeptManager{" +
         "empNo=" + empNo +
-        ", salary=" + salary +
+        ", deptNo=" + deptNo +
         ", fromDate=" + fromDate +
         ", toDate=" + toDate +
         "}";

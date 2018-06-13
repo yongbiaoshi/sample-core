@@ -4,6 +4,11 @@ import com.spring4all.swagger.EnableSwagger2Doc;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.SmartValidator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 
 @Configuration
 @MapperScan(basePackages = {"com.my.sample.core.dao.mapper"})  // mybatis自动描包

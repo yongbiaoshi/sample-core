@@ -1,4 +1,4 @@
-package com.my.sample.core.entity;
+package com.my.sample.core.entity.po;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;

@@ -1,6 +1,6 @@
 package com.my.sample.core.service;
 
-import com.my.sample.core.entity.po.Employees;
+import com.my.sample.core.entity.po.User;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author shiyongbiao
- * @since 2018-06-13
+ * @since 2018-06-14
  */
-public interface EmployeesService extends IService<Employees> {
+public interface UserService extends IService<User> {
 
 }

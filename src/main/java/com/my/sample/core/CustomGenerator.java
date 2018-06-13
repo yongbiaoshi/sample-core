@@ -1,10 +1,7 @@
 package com.my.sample.core;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
@@ -15,15 +12,15 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 public class CustomGenerator {
 
     // 输出目录
-    private static String outPutDir = "D:\\workspace\\idea\\ground-self\\sample-core\\src\\main\\java";
+    private static String outPutDir = "F:\\git_repository\\github\\sample-core\\src\\main\\java";
     private static String author = "shiyongbiao";
-    private static String jdbcUrl = "jdbc:mysql://192.168.2.242:3306/employees?useUnicode=true&amp;characterEncoding=UTF-8&amp;generateSimpleParameterMetadata=true";
+    private static String jdbcUrl = "jdbc:mysql://localhost:3306/employees?useUnicode=true&amp;characterEncoding=UTF-8&amp;generateSimpleParameterMetadata=true";
     private static String username = "root";
     private static String password = "root";
 
     private static String parent = "com.my.sample.core";
 
-    private static String[] include = new String[]{};
+    private static String[] include = new String[]{"user"};
 
     private static String[] exclude = new String[]{};
 
@@ -78,10 +75,28 @@ public class CustomGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent(parent);
+        pc.setEntity("entity.po");
+        pc.setService("service");
+        pc.setServiceImpl("service.impl");
         pc.setMapper("dao.mapper");
         pc.setXml("xml");
-        pc.setController("controller");
         mpg.setPackageInfo(pc);
+
+
+        // 自定义模板配置，可以 copy 源码 mybatis-plus/src/main/resources/templates 下面内容修改，
+        // 放置自己项目的 src/main/resources/templates 目录下, 默认名称一下可以不配置，也可以自定义模板名称
+        TemplateConfig tc = new TemplateConfig();
+        tc.setController(null);
+        //        tc.setEntity("entity.po");
+        //        tc.setMapper("dao.mapper");
+        //        tc.setXml("xml");
+        //        tc.setService("service");
+        //        tc.setServiceImpl("service.impl");
+        //        tc.setController(null);
+        mpg.setTemplate(tc);
+
+        // 如上任何一个模块如果设置 空 OR Null 将不生成该模块。
+        mpg.setTemplate(tc);
 
         // 执行生成
         mpg.execute();

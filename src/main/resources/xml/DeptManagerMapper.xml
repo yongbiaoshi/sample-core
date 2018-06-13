@@ -3,7 +3,7 @@
 <mapper namespace="com.my.sample.core.dao.mapper.DeptManagerMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.my.sample.core.entity.DeptManager">
+    <resultMap id="BaseResultMap" type="com.my.sample.core.entity.po.DeptManager">
         <id column="emp_no" property="empNo" />
         <result column="dept_no" property="deptNo" />
         <result column="from_date" property="fromDate" />

@@ -1,4 +1,4 @@
-package com.my.sample.core.entity;
+package com.my.sample.core.entity.po;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;

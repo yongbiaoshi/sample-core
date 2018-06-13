@@ -1,6 +1,6 @@
 package com.my.sample.core.dao.mapper;
 
-import com.my.sample.core.entity.Employees;
+import com.my.sample.core.entity.po.Employees;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**

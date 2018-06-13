@@ -3,7 +3,7 @@
 <mapper namespace="com.my.sample.core.dao.mapper.SalariesMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.my.sample.core.entity.Salaries">
+    <resultMap id="BaseResultMap" type="com.my.sample.core.entity.po.Salaries">
         <id column="emp_no" property="empNo" />
         <result column="salary" property="salary" />
         <result column="from_date" property="fromDate" />

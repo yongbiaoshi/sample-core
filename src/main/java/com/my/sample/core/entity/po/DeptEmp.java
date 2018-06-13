@@ -1,4 +1,4 @@
-package com.my.sample.core.entity;
+package com.my.sample.core.entity.po;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -15,8 +15,8 @@ import java.io.Serializable;
  * @author shiyongbiao
  * @since 2018-06-13
  */
-@TableName("dept_manager")
-public class DeptManager extends Model<DeptManager> {
+@TableName("dept_emp")
+public class DeptEmp extends Model<DeptEmp> {
 
     private static final long serialVersionUID = 1L;
 
@@ -69,7 +69,7 @@ public class DeptManager extends Model<DeptManager> {
 
     @Override
     public String toString() {
-        return "DeptManager{" +
+        return "DeptEmp{" +
         "empNo=" + empNo +
         ", deptNo=" + deptNo +
         ", fromDate=" + fromDate +

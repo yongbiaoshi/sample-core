@@ -1,6 +1,6 @@
 package com.my.sample.core.service.impl;
 
-import com.my.sample.core.entity.Employees;
+import com.my.sample.core.entity.po.Employees;
 import com.my.sample.core.dao.mapper.EmployeesMapper;
 import com.my.sample.core.service.EmployeesService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;

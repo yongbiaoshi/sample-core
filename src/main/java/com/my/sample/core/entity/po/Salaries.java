@@ -1,4 +1,4 @@
-package com.my.sample.core.entity;
+package com.my.sample.core.entity.po;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -14,13 +14,13 @@ import java.io.Serializable;
  * @author shiyongbiao
  * @since 2018-06-13
  */
-public class Titles extends Model<Titles> {
+public class Salaries extends Model<Salaries> {
 
     private static final long serialVersionUID = 1L;
 
     @TableId("emp_no")
     private Integer empNo;
-    private String title;
+    private Integer salary;
     @TableField("from_date")
     private Date fromDate;
     @TableField("to_date")
@@ -35,12 +35,12 @@ public class Titles extends Model<Titles> {
         this.empNo = empNo;
     }
 
-    public String getTitle() {
-        return title;
+    public Integer getSalary() {
+        return salary;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSalary(Integer salary) {
+        this.salary = salary;
     }
 
     public Date getFromDate() {
@@ -66,9 +66,9 @@ public class Titles extends Model<Titles> {
 
     @Override
     public String toString() {
-        return "Titles{" +
+        return "Salaries{" +
         "empNo=" + empNo +
-        ", title=" + title +
+        ", salary=" + salary +
         ", fromDate=" + fromDate +
         ", toDate=" + toDate +
         "}";

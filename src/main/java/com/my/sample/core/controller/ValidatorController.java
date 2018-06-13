@@ -1,13 +1,13 @@
 package com.my.sample.core.controller;
 
+import com.my.sample.core.entity.form.UserForm;
 import io.swagger.annotations.Api;
-import org.springframework.validation.SmartValidator;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.groups.Default;
 
 @Api
 @RequestMapping("valid")
@@ -19,6 +19,7 @@ public class ValidatorController {
 
     /**
      * 必输项验证
+     *
      * @param name 名
      * @return 值
      */
@@ -26,6 +27,40 @@ public class ValidatorController {
     public String common(@RequestAttribute(required = true) String name) {
 
         return name;
+    }
+
+    /**
+     * 手动校验（分组）
+     *
+     * @param form 用户信息
+     * @return 成功
+     */
+    @PostMapping("user")
+    public String createUser(@Validated UserForm form) {
+        Errors errors = new BeanPropertyBindingResult(form, "UserForm");
+        validator.validate(form, errors, UserForm.UserAddGroup.class, Default.class);
+        if (errors.hasErrors()) {
+            FieldError error = errors.getFieldError();
+            String errorMsg = "参数非法，对象：%s，参数：%s，信息：%s";
+            throw new IllegalArgumentException(String.format(errorMsg, error.getObjectName(), error.getField(), error.getDefaultMessage()));
+        }
+        return "success";
+    }
+
+    /**
+     * 自动校验（分组）
+     *
+     * @param form 用户信息
+     * @return 成功
+     */
+    @PatchMapping("user")
+    public String updateUser(@Validated({UserForm.UserUpdateGroup.class, Default.class}) UserForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            FieldError error = result.getFieldError();
+            String errorMsg = "参数非法，对象：%s，参数：%s，信息：%s";
+            throw new IllegalArgumentException(String.format(errorMsg, error.getObjectName(), error.getField(), error.getDefaultMessage()));
+        }
+        return "success";
     }
 
 }

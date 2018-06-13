@@ -1,6 +1,6 @@
 package com.my.sample.core.service;
 
-import com.my.sample.core.entity.Departments;
+import com.my.sample.core.entity.po.Departments;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
