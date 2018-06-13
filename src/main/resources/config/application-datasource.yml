@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: sample-core
+  profiles:
+    include:
+    - mysql
+  datasource:
+    name: datasource
+    url: jdbc:mysql://192.168.2.242:3306/employees?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 50
+      idle-timeout: 30000
+      auto-commit: true
+      connection-test-query: SELECT 1
+      connection-timeout: 30000
+      max-lifetime: 1800000

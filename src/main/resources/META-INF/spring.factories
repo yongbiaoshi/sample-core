@@ -1,0 +1,4 @@
+org.springframework.context.ApplicationListener=\
+org.springframework.boot.context.ApplicationPidFileWriter,\
+org.springframework.boot.web.context.WebServerPortFileWriter
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.my.sample.core.config.AppProperties

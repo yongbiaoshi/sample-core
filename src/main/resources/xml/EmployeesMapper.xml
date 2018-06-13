@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.sample.core.dao.mapper.EmployeesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.my.sample.core.entity.Employees">
+        <id column="emp_no" property="empNo" />
+        <result column="birth_date" property="birthDate" />
+        <result column="first_name" property="firstName" />
+        <result column="last_name" property="lastName" />
+        <result column="gender" property="gender" />
+        <result column="hire_date" property="hireDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        emp_no AS empNo, birth_date AS birthDate, first_name AS firstName, last_name AS lastName, gender, hire_date AS hireDate
+    </sql>
+
+</mapper>
