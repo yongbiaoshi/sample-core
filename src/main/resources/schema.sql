@@ -137,7 +137,7 @@ CREATE TABLE `user` (
   `mobile_num` char(11) NOT NULL DEFAULT '' COMMENT '手机号',
   `email` varchar(100) NOT NULL DEFAULT '' COMMENT 'email地址',
   `address` varchar(255) NOT NULL DEFAULT '' COMMENT '地址',
-  `modify_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `modify_time` datetime DEFAULT NULL COMMENT '修改时间',
   `last_update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`),
