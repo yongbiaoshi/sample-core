@@ -6,6 +6,7 @@ import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
+ * 统一Json返回格式
  * Controller方法返回的所有ResponseBody的值，包装成统一格式{@link ResponseResult}
  *
  * @author shiyongbiao
