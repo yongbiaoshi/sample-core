@@ -30,6 +30,7 @@
 
     <logger name="com.incar" level="INFO"></logger>
     <logger name="com.my.sample.core.config.filter.RequestLoggingFilter" level="DEBUG"></logger>
+    <logger name="com.my.sample.core.dao.mapper" level="DEBUG"></logger>
     <!--</logger>-->
     <root level="INFO">
         <!--<appender-ref ref="STASH" />-->

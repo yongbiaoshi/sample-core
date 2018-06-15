@@ -20,13 +20,14 @@ public class ValidatorController {
     /**
      * 必输项验证
      *
-     * @param name 名
+     * @param name  名
+     * @param count 数量
      * @return 值
      */
     @GetMapping("")
-    public String common(@RequestAttribute(required = true) String name) {
+    public String common(String name, @RequestAttribute(required = false) Integer count) {
 
-        return name;
+        return name + count;
     }
 
     /**

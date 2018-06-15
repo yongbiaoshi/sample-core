@@ -32,6 +32,11 @@ spring:
   resources:
     add-mappings: true
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true # 默认第一页页码为1，不要与spring-boot-starter-data-rest一起用，否则会失效
+        default-page-size: 10 # 默认分页大小
 
 logging:
   config: ${spring.config.location:classpath:config}/logback.xml
@@ -55,3 +60,4 @@ management:
         - configprops
         - mappings
         - scheduledtasks
+        - beans
