@@ -7,10 +7,18 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 
-@WebFilter(urlPatterns = "/*", initParams = { @WebInitParam(name = "includeQueryString", value = "true"),
+/**
+ * 记录Request日志
+ * 日志内容在{@link WebFilter 注解中配置}
+ *
+ * @author shiyongbiao
+ */
+@WebFilter(urlPatterns = "/*", initParams = {
+        @WebInitParam(name = "includeQueryString", value = "true"),
         @WebInitParam(name = "includeClientInfo", value = "true"),
-        @WebInitParam(name = "includeHeaders", value = "true"), @WebInitParam(name = "includePayload", value = "true"),
-        @WebInitParam(name = "maxPayloadLength", value = "1024") })
+        @WebInitParam(name = "includeHeaders", value = "true"),
+        @WebInitParam(name = "includePayload", value = "true"),
+        @WebInitParam(name = "maxPayloadLength", value = "1024")})
 public class RequestLoggingFilter extends CommonsRequestLoggingFilter {
 
     @Override
