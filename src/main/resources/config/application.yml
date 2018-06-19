@@ -10,6 +10,7 @@ spring:
   profiles:
     include:
     - datasource
+    - webclient
   pid:
     file: ${spring.application.name}.pid
     fail-on-write-error: true

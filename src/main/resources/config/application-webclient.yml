@@ -1,0 +1,19 @@
+client:
+  baidu:
+    query:
+      base-url: https://sp0.baidu.com
+      keyword-query-url: /5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd={keyword}&json=1&p=3&sid=1468_21124_20930&req=2&csor=1&cb=jquery&_={timestamp}
+      headers:
+        TOKEN: 1234567890
+        Accept: application/json
+      uri-variables:
+        test: abc
+  car:
+    basic:
+      base-url:  https://easy-mock.com/mock/5b28c3829783c04a374a0cca
+      headers:
+        TOKEN: 1234567890
+        SIGN: 1234567890
+        Accept: application/json
+      query-url: /cars/{id}
+      query-list-url: /cars

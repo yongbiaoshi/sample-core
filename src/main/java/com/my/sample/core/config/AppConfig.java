@@ -1,13 +1,13 @@
 package com.my.sample.core.config;
 
-import com.my.sample.core.config.handler.ResponseBodyWrapFactoryBean;
 import com.spring4all.swagger.EnableSwagger2Doc;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.HashMap;
 
 @Configuration
 @MapperScan(basePackages = {"com.my.sample.core.dao.mapper"})  // mybatis自动描包
