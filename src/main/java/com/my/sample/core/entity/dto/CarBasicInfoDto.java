@@ -1,7 +1,9 @@
 package com.my.sample.core.entity.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.util.Locale;
 import java.util.Date;
 
 /**
@@ -16,6 +18,8 @@ public class CarBasicInfoDto {
     private String brand;
     private String model;
     private String license;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date lastUpdateTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 }
