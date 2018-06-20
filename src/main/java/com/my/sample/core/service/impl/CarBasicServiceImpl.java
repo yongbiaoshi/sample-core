@@ -30,7 +30,10 @@ public class CarBasicServiceImpl implements CarBasicService {
         // 创建TypeReference用于Json转换
         ParameterizedTypeReference<CarBasicResultDto<CarBasicInfoDto>> typeReference = new ParameterizedTypeReference<CarBasicResultDto<CarBasicInfoDto>>() {
         };
-        WebClient.ResponseSpec responseSpec = carBasicWebClient.get().uri(properties.getQueryUrl(), id).retrieve();
+        WebClient.ResponseSpec responseSpec = carBasicWebClient
+                .get()
+                .uri(properties.getQueryUrl(), id)
+                .retrieve();
         // 统一处理返回值
         Mono<CarBasicResultDto<CarBasicInfoDto>> mono = WebClientLogUtils.responseHandle("id=" + id, responseSpec, typeReference);
         // 接收返回值，如果有错误会在这方法上抛出异常
@@ -45,8 +48,10 @@ public class CarBasicServiceImpl implements CarBasicService {
         // 创建TypeReference用于Json转换
         ParameterizedTypeReference<CarBasicResultDto<List<CarBasicInfoDto>>> typeReference = new ParameterizedTypeReference<CarBasicResultDto<List<CarBasicInfoDto>>>() {
         };
-        WebClient.ResponseSpec responseSpec = carBasicWebClient.get()
-                .uri(properties.getQueryPageUrl(), pageable.getPageNumber(), pageable.getPageSize()).retrieve();
+        WebClient.ResponseSpec responseSpec = carBasicWebClient
+                .get()
+                .uri(properties.getQueryPageUrl(), pageable.getPageNumber(), pageable.getPageSize())
+                .retrieve();
         // 统一处理返回值
         Mono<CarBasicResultDto<List<CarBasicInfoDto>>> mono = WebClientLogUtils.responseHandle("分页=" + pageable, responseSpec, typeReference);
         // 接收返回值，如果有错误会在这方法上抛出异常
