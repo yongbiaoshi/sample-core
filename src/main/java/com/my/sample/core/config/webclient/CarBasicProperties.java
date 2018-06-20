@@ -10,7 +10,7 @@ public class CarBasicProperties {
     private String baseUrl;
     private Map<String, String> headers;
     private String queryUrl;
-    private String queryListUrl;
+    private String queryPageUrl;
 
     public String getBaseUrl() {
         return baseUrl;
@@ -36,11 +36,11 @@ public class CarBasicProperties {
         this.queryUrl = queryUrl;
     }
 
-    public String getQueryListUrl() {
-        return queryListUrl;
+    public String getQueryPageUrl() {
+        return queryPageUrl;
     }
 
-    public void setQueryListUrl(String queryListUrl) {
-        this.queryListUrl = queryListUrl;
+    public void setQueryPageUrl(String queryPageUrl) {
+        this.queryPageUrl = queryPageUrl;
     }
 }
