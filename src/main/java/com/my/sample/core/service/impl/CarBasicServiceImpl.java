@@ -13,6 +13,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
+import java.time.Duration;
+import java.time.temporal.TemporalUnit;
 import java.util.List;
 
 @Slf4j
@@ -30,10 +32,7 @@ public class CarBasicServiceImpl implements CarBasicService {
         // 创建TypeReference用于Json转换
         ParameterizedTypeReference<CarBasicResultDto<CarBasicInfoDto>> typeReference = new ParameterizedTypeReference<CarBasicResultDto<CarBasicInfoDto>>() {
         };
-        WebClient.ResponseSpec responseSpec = carBasicWebClient
-                .get()
-                .uri(properties.getQueryUrl(), id)
-                .retrieve();
+        WebClient.ResponseSpec responseSpec = carBasicWebClient.get().uri(properties.getQueryUrl(), id).retrieve();
         // 统一处理返回值
         Mono<CarBasicResultDto<CarBasicInfoDto>> mono = WebClientLogUtils.responseHandle("id=" + id, responseSpec, typeReference);
         // 接收返回值，如果有错误会在这方法上抛出异常
@@ -48,14 +47,11 @@ public class CarBasicServiceImpl implements CarBasicService {
         // 创建TypeReference用于Json转换
         ParameterizedTypeReference<CarBasicResultDto<List<CarBasicInfoDto>>> typeReference = new ParameterizedTypeReference<CarBasicResultDto<List<CarBasicInfoDto>>>() {
         };
-        WebClient.ResponseSpec responseSpec = carBasicWebClient
-                .get()
-                .uri(properties.getQueryPageUrl(), pageable.getPageNumber(), pageable.getPageSize())
-                .retrieve();
+        WebClient.ResponseSpec responseSpec = carBasicWebClient.get().uri(properties.getQueryPageUrl(), pageable.getPageNumber(), pageable.getPageSize()).retrieve();
         // 统一处理返回值
         Mono<CarBasicResultDto<List<CarBasicInfoDto>>> mono = WebClientLogUtils.responseHandle("分页=" + pageable, responseSpec, typeReference);
         // 接收返回值，如果有错误会在这方法上抛出异常
-        CarBasicResultDto<List<CarBasicInfoDto>> result = mono.block();
+        CarBasicResultDto<List<CarBasicInfoDto>> result = mono.block(Duration.ofSeconds(10)); //设置超时时间10s
         checkResult(result); // 检查返回是否成功
         return result.getData();
     }
