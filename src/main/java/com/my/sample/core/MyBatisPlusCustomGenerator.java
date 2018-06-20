@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  * Created by ehomeud on 2017/4/26.
  */
 
-public class CustomGenerator {
+public class MyBatisPlusCustomGenerator {
 
     // 输出目录
     private static String outPutDir = "F:\\git_repository\\github\\sample-core\\src\\main\\java";
