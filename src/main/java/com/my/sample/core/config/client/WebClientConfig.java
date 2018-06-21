@@ -1,4 +1,4 @@
-package com.my.sample.core.config.webclient;
+package com.my.sample.core.config.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,11 +11,11 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 @Configuration
-@EnableConfigurationProperties({CarBasicProperties.class})
+@EnableConfigurationProperties({CarBasicClientProperties.class})
 public class WebClientConfig {
 
     @Bean(name = "carBasicWebClient")
-    public WebClient carBasicWebClient(CarBasicProperties properties) {
+    public WebClient carBasicWebClient(CarBasicClientProperties properties) {
         return WebClient.builder().baseUrl(properties.getBaseUrl()) // 基础Url
                 .defaultHeaders(httpHeaders -> {
                     // 设置默认请求头

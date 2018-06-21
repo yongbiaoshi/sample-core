@@ -1,11 +1,11 @@
-package com.my.sample.core.config.webclient;
+package com.my.sample.core.config.client;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.Map;
 
 @ConfigurationProperties(prefix = "client.car.basic")
-public class CarBasicProperties {
+public class CarBasicClientProperties {
 
     private String baseUrl;
     private Map<String, String> headers;

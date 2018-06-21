@@ -31,8 +31,7 @@
     <logger name="com.incar" level="INFO"></logger>
     <logger name="com.my.sample.core.config.filter.RequestLoggingFilter" level="DEBUG"></logger>
     <logger name="com.my.sample.core.dao.mapper" level="DEBUG"></logger>
-    <logger name="com.my.sample.core.config.webclient.WebClientConfig$LoggingExchangeFilterFunction" level="DEBUG"></logger>
-    <logger name="com.my.sample.core.util.WebClientLogUtils" level="DEBUG"></logger>
+    <logger name="com.my.sample.core.config.client.WebClientConfig$LoggingExchangeFilterFunction" level="DEBUG"></logger>
     <!--</logger>-->
     <root level="INFO">
         <!--<appender-ref ref="STASH" />-->

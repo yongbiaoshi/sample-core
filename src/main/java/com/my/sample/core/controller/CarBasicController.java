@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class CarBasicController {
      * @return
      */
     @GetMapping("/{id}")
-    public CarBasicInfoVo carBasicInfoVo(@PathVariable Integer id) {
+    public CarBasicInfoVo carBasicInfoVo(@PathVariable Integer id) throws IOException {
         CarBasicInfoVo vo = new CarBasicInfoVo();
         BeanUtils.copyProperties(carBasicService.queryById(id), vo);
         return vo;

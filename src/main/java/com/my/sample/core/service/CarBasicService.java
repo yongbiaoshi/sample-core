@@ -4,6 +4,7 @@ import com.my.sample.core.entity.dto.CarBasicInfoDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public interface CarBasicService {
      * @param id 车辆Id
      * @return 车辆基础信息
      */
-    CarBasicInfoDto queryById(int id);
+    CarBasicInfoDto queryById(int id) throws IOException;
 
     /**
      * 分页查询车辆信息

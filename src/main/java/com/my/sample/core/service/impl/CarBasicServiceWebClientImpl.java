@@ -1,11 +1,12 @@
 package com.my.sample.core.service.impl;
 
-import com.my.sample.core.config.webclient.CarBasicProperties;
+import com.my.sample.core.config.client.CarBasicClientProperties;
 import com.my.sample.core.entity.dto.CarBasicInfoDto;
 import com.my.sample.core.entity.dto.CarBasicResultDto;
 import com.my.sample.core.service.CarBasicService;
 import com.my.sample.core.util.WebClientLogUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,15 +15,14 @@ import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 import java.time.Duration;
-import java.time.temporal.TemporalUnit;
 import java.util.List;
 
 @Slf4j
 @Service
-public class CarBasicServiceImpl implements CarBasicService {
+public class CarBasicServiceWebClientImpl implements CarBasicService {
 
     @Resource
-    private CarBasicProperties properties;
+    private CarBasicClientProperties properties;
 
     @Resource
     private WebClient carBasicWebClient;

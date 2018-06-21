@@ -19,6 +19,9 @@ public class WebClientTest {
         Loggers.useSl4jLoggers();
     }
 
+    /**
+     * 验证MyBatis的update返回值是否是受影响的行数
+     */
     @Test
     public void timeoutTest() {
         int l = 1;

@@ -1,0 +1,12 @@
+client:
+  car:
+    basic:
+      base-url: https://easy-mock.com/mock/5b28c3829783c04a374a0cca
+      headers:
+        TOKEN: 1234567890
+        SIGN: 1234567890
+        Accept: application/json
+      query-url: /cars/{id}
+      query-page-url: /cars?page={page}&size={page}
+    manage:
+      base-url: https://easy-mock.com/mock/5b28c3829783c04a374a0cca
