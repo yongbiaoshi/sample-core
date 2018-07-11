@@ -8,6 +8,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.client.RestTemplateCustomizer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
@@ -19,6 +20,7 @@ import java.util.List;
 @EnableSwagger2Doc // 开启Swagger2，自动生成文档，Url：/swagger-ui.html
 @EnableConfigurationProperties(AppProperties.class)
 @Import(value = {RestTemplateAutoConfiguration.class})
+@EnableAsync
 public class AppConfig {
 
     @Resource

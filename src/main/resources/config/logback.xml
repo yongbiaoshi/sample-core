@@ -15,13 +15,26 @@
             <charset>${charset}</charset>
         </encoder>
     </appender>
-
+    <appender name="STDOUT-JSON" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder charset="${charset}" class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"appname":"${APP_Name}"}</customFields>
+            <includeCallerData>true</includeCallerData>
+            <timestampPattern>yyyy-MM-dd HH:mm:ss.SSS</timestampPattern>
+            <fieldNames>
+                <timestamp>time</timestamp>
+                <message>message</message>
+                <version>version</version>
+            </fieldNames>
+        </encoder>
+    </appender>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- <fileNamePattern>D:/logs/${APP_Name}/${APP_Name}.logFile.%d{yyyy-MM-dd}.log</fileNamePattern> -->
             <fileNamePattern>/data/app/${APP_Name}/logs/${APP_Name}.logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>3</maxHistory>
         </rollingPolicy>
+
         <encoder>
             <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%5level] %-4relative [%thread] --- %-40logger{36} %line: %msg%n</pattern>
             <charset>${charset}</charset>
@@ -32,10 +45,11 @@
     <logger name="com.my.sample.core.config.filter.RequestLoggingFilter" level="DEBUG"></logger>
     <logger name="com.my.sample.core.dao.mapper" level="DEBUG"></logger>
     <logger name="com.my.sample.core.config.client.WebClientConfig$LoggingExchangeFilterFunction" level="DEBUG"></logger>
+    <logger name="com.my.sample.core.service.impl.LogTestServiceImpl" level="DEBUG"></logger>
     <!--</logger>-->
     <root level="INFO">
         <!--<appender-ref ref="STASH" />-->
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT-JSON" />
         <!--<appender-ref ref="FILE"/>-->
     </root>
 </configuration>  
