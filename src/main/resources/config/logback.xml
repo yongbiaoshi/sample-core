@@ -23,8 +23,13 @@
             <timestampPattern>yyyy-MM-dd HH:mm:ss.SSS</timestampPattern>
             <fieldNames>
                 <timestamp>time</timestamp>
-                <message>message</message>
+                <level>level</level>
+                <thread>thread</thread>
+                <logger>logger</logger>
+                <message>detail</message>
                 <version>version</version>
+                <callerLine>line</callerLine>
+                <callerMethod>method</callerMethod>
             </fieldNames>
         </encoder>
     </appender>
