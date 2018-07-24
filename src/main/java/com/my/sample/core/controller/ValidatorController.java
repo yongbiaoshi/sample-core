@@ -25,7 +25,7 @@ public class ValidatorController {
      * @return 值
      */
     @GetMapping("")
-    public String common(String name, @RequestAttribute(required = false) Integer count) {
+    public String common(String name, @RequestParam(required = false, defaultValue = "1") int count) {
 
         return name + count;
     }

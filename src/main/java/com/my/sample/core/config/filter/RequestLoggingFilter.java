@@ -2,6 +2,7 @@ package com.my.sample.core.config.filter;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.MDC;
+import org.springframework.util.StringUtils;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 import javax.servlet.FilterConfig;
@@ -43,11 +44,15 @@ public class RequestLoggingFilter extends CommonsRequestLoggingFilter {
 
     @Override
     protected void beforeRequest(HttpServletRequest request, String message) {
+        MDC.clear();
         request.setAttribute("request_start_time", System.currentTimeMillis());
         MDC.put("localAddr", request.getLocalAddr());
-        MDC.put("uri", request.getRequestURI());
-        MDC.put("queryString", request.getQueryString());
         MDC.put("reqSeq", RandomStringUtils.randomAlphabetic(10));
+        String requestId = request.getHeader("x-request-id");
+        if (!StringUtils.isEmpty(requestId)) {
+            MDC.put("requestId", requestId);
+        }
+        request.setAttribute("timestamp", System.currentTimeMillis());
         super.beforeRequest(request, message);
     }
 
