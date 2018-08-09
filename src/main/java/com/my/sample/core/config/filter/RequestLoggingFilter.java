@@ -46,6 +46,7 @@ public class RequestLoggingFilter extends CommonsRequestLoggingFilter {
     protected void beforeRequest(HttpServletRequest request, String message) {
         MDC.clear();
         request.setAttribute("request_start_time", System.currentTimeMillis());
+        MDC.put("uri", request.getRequestURI());
         MDC.put("localAddr", request.getLocalAddr());
         MDC.put("reqSeq", RandomStringUtils.randomAlphabetic(10));
         String requestId = request.getHeader("x-request-id");
