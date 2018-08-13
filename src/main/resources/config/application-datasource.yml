@@ -10,7 +10,7 @@ spring:
     - mysql
   datasource:
     name: datasource
-    url: jdbc:mysql://localhost:3306/employees?useAffectedRows=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://192.168.1.242:3306/employees?useAffectedRows=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver

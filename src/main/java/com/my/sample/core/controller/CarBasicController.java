@@ -3,6 +3,8 @@ package com.my.sample.core.controller;
 import com.my.sample.core.entity.dto.CarBasicInfoDto;
 import com.my.sample.core.entity.vo.CarBasicInfoVo;
 import com.my.sample.core.service.CarBasicService;
+import com.my.sample.core.service.CarManageService;
+import com.my.sample.core.service.CarService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Pageable;
@@ -26,18 +28,36 @@ import java.util.List;
 public class CarBasicController {
 
     @Resource
+    CarManageService carManageService;
+    @Resource
     private CarBasicService carBasicService;
+
+    @Resource
+    private CarService carService;
 
     /**
      * 根据Id查询车辆
      *
-     * @param id
+     * @param id 车辆ID
      * @return
      */
     @GetMapping("/{id}")
-    public CarBasicInfoVo carBasicInfoVo(@PathVariable Integer id) throws IOException {
+    public CarBasicInfoVo queryById(@PathVariable Integer id) throws IOException {
         CarBasicInfoVo vo = new CarBasicInfoVo();
         BeanUtils.copyProperties(carBasicService.queryById(id), vo);
+        return vo;
+    }
+
+    /**
+     * 根据Id查询车辆
+     *
+     * @param id 车辆ID
+     * @return
+     */
+    @GetMapping("/f/{id}")
+    public CarBasicInfoVo carBasicInfoVo(@PathVariable Integer id) throws IOException {
+        CarBasicInfoVo vo = new CarBasicInfoVo();
+        BeanUtils.copyProperties(carManageService.queryById(id).getData(), vo);
         return vo;
     }
 
@@ -52,4 +72,9 @@ public class CarBasicController {
         return carBasicService.page(pageable);
     }
 
+
+    @GetMapping("test")
+    public String test(){
+        return carService.index();
+    }
 }

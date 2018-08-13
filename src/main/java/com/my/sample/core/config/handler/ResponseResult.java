@@ -9,7 +9,6 @@ import lombok.ToString;
  * 统一ResponseBody返回值
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class ResponseResult {
